@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation</title>
+
+<style>
+body{
+    font-family: Arial;
+    background-color: lavender;
+    margin: 30px;
+}
+
+h2{
+    color: darkblue;
+    text-align: center;
+}
+
+table{
+    margin: auto;
+    background-color: white;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+td{
+    padding: 10px;
+}
+
+input,textarea{
+    padding: 5px;
+}
+
+input[type="button"]{
+    background-color: lightgreen;
+    padding: 8px;
+}
+</style>
+
+<script>
+
+function validate()
+{
+    var name=document.getElementById("name").value;
+    var email=document.getElementById("email").value;
+    var mobile=document.getElementById("mobile").value;
+    var color=document.getElementById("color").value;
+
+    var gender="";
+
+    if(document.getElementById("male").checked)
+        gender="Male";
+    else if(document.getElementById("female").checked)
+        gender="Female";
+
+    if(name=="" || email=="" || mobile=="" || gender=="")
+    {
+        alert("Please fill all fields");
+        return;
+    }
+
+    document.getElementById("result").value=
+    "Name : "+name+
+    "\nEmail : "+email+
+    "\nMobile : "+mobile+
+    "\nGender : "+gender+
+    "\nFavorite Color : "+color;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>FORM VALIDATION</h2>
+
+<table>
+
+<tr>
+<td>Name</td>
+<td><input type="text" id="name"></td>
+</tr>
+
+<tr>
+<td>Email</td>
+<td><input type="email" id="email"></td>
+</tr>
+
+<tr>
+<td>Mobile No</td>
+<td><input type="text" id="mobile"></td>
+</tr>
+
+<tr>
+<td>Gender</td>
+<td>
+<input type="radio" id="male" name="g"> Male
+<input type="radio" id="female" name="g"> Female
+</td>
+</tr>
+
+<tr>
+<td>Favorite Color</td>
+<td>
+<input type="color" id="color">
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="center">
+<input type="button"
+value="Submit"
+onclick="validate()">
+</td>
+</tr>
+
+<tr>
+<td>Information</td>
+<td>
+<textarea rows="6" cols="30"
+id="result"></textarea>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>
